@@ -1,0 +1,45 @@
+name: al_furqan
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+    - assets/icons/
+
+
+  # To add custom fonts to your application, add a fonts section here,
+  fonts:
+    - family: ElMessiri
+      fonts:
+        - asset: assets/fonts/ElMessiri-Bold.ttf
+        - asset: assets/fonts/ElMessiri-SemiBold.ttf
+        - asset: assets/fonts/ElMessiri-Medium.ttf
+        - asset: assets/fonts/ElMessiri-Regular.ttf
+
+flutter_assets:
+  assets_path: assets/
+  output_path: lib/core/utils/
+  filename: assets.dart
