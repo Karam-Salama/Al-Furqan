@@ -1,0 +1,11 @@
+flutter_native_splash:
+
+  color: "#ffffff"
+  image: assets/images/light-splash-screen.png
+
+  # The dark mode parameters can be used to enable dark mode.  By default the parameters will
+  color_dark: "#1F2A4B"
+  image_dark: assets/images/dark-splash-screen.png
+
+
+  android_12:
