@@ -9,8 +9,9 @@ class ALFurqan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
-        HomeScreen.routeName: (_) => const HomeScreen(),
+        HomeScreen.routeName: (_) => HomeScreen(),
       },
       initialRoute: HomeScreen.routeName,
     );
