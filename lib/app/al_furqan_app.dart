@@ -3,6 +3,8 @@
 import 'package:al_furqan/features/Home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../core/utils/app_theme.dart';
+
 class ALFurqan extends StatelessWidget {
   const ALFurqan({super.key});
 
@@ -10,8 +12,9 @@ class ALFurqan extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
       routes: {
-        HomeScreen.routeName: (_) => HomeScreen(),
+        HomeScreen.routeName: (_) => const HomeScreen(),
       },
       initialRoute: HomeScreen.routeName,
     );
