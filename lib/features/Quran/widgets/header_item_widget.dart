@@ -10,7 +10,7 @@ class HeaderItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        height: 30,
+        height: 50,
         decoration: BoxDecoration(
           border: Border.symmetric(
             horizontal: BorderSide(
@@ -22,7 +22,7 @@ class HeaderItem extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: theme.textTheme.bodyLarge,
+            style: theme.textTheme.headlineMedium,
           ),
         ),
       ),

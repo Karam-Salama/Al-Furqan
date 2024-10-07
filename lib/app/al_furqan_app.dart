@@ -1,9 +1,10 @@
 // ignore_for_file: file_names
 
-import 'package:al_furqan/features/Home/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../core/utils/app_theme.dart';
+import '../features/Home/home_screen.dart';
+import '../features/Quran/screens/surah_screen.dart';
 
 class ALFurqan extends StatelessWidget {
   const ALFurqan({super.key});
@@ -15,6 +16,7 @@ class ALFurqan extends StatelessWidget {
       theme: AppTheme.lightTheme,
       routes: {
         HomeScreen.routeName: (_) => const HomeScreen(),
+        SurahDetailsScreen.routeName: (_) => const SurahDetailsScreen(),
       },
       initialRoute: HomeScreen.routeName,
     );
