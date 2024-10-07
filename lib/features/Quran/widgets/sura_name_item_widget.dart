@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'list_view_item_widget.dart';
+
 class SuraNameItem extends StatelessWidget {
   final int suraAyat;
   final String suraName;
@@ -16,35 +18,24 @@ class SuraNameItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onPress,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: Row(
-          children: [
-            Expanded(
-              child: Text(
-                suraAyat.toString(),
-                style: theme.textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ),
-            ),
-            SizedBox(
-              height: 30,
-              child: VerticalDivider(
-                color: theme.primaryColor,
-                thickness: 2.0,
-              ),
-            ),
-            Expanded(
-              child: Text(
-                suraName,
-                style: theme.textTheme.bodyLarge,
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ],
-        ),
+      child: Row(
+        children: [
+          QuranTapListViewItem(
+            text: suraAyat.toString(),
+            theme: theme,
+          ),
+          Container(
+            color: theme.primaryColor,
+            height: 50,
+            width: 2,
+          ),
+          QuranTapListViewItem(
+            text: suraName,
+            theme: theme,
+          )
+        ],
       ),
     );
   }

@@ -2,10 +2,10 @@ import 'package:al_furqan/core/utils/app_colors.dart';
 import 'package:al_furqan/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
-import '../../Hadith/screens/hadith_tap_widget.dart';
-import '../../Quran/screens/quran_tap.dart';
-import '../../Radio/screens/radio_tap_widget.dart';
-import '../../Sebha/screens/sebha_tap_widget.dart';
+import '../Hadith/screens/hadith_tap_widget.dart';
+import '../Quran/screens/quran_tap.dart';
+import '../Radio/screens/radio_tap_widget.dart';
+import '../Sebha/screens/sebha_tap_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/homeScreen';
@@ -27,11 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage(Assets.assetsImagesHomeLightBackground),
-            fit: BoxFit.fill),
+          image: AssetImage(Assets.assetsImagesHomeLightBackground),
+          fit: BoxFit.fill,
+        ),
       ),
       child: Scaffold(
-        appBar: AppBar(title: const Text('AL-Furqan')),
+        appBar: AppBar(title: const Text('الفرقان')),
         body: taps[selectedIndex],
         bottomNavigationBar: Theme(
           data: Theme.of(context)

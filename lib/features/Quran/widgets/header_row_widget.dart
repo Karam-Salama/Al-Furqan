@@ -15,12 +15,10 @@ class HeaderRow extends StatelessWidget {
           theme: theme,
           text: "عدد الآيات", // Ayat Count Header
         ),
-        SizedBox(
-          height: 30,
-          child: VerticalDivider(
-            color: theme.primaryColor,
-            thickness: 2.0,
-          ),
+        Container(
+          color: theme.primaryColor,
+          height: 50,
+          width: 2,
         ),
         HeaderItem(
           theme: theme,

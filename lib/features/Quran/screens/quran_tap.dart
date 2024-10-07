@@ -1,8 +1,10 @@
 import 'package:al_furqan/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
+import '../models/surah_model.dart';
 import '../widgets/header_row_widget.dart';
 import '../widgets/sura_name_item_widget.dart';
+import 'surah_screen.dart';
 
 class QuranTap extends StatelessWidget {
   QuranTap({super.key});
@@ -251,19 +253,29 @@ class QuranTap extends StatelessWidget {
         const SizedBox(height: 20.0),
         HeaderRow(theme: theme),
         Expanded(
-          child: ListView.builder(
+          child: ListView.separated(
             itemCount: suraNames.length,
+            separatorBuilder: (_, index) {
+              return Container(
+                color: theme.primaryColor,
+                width: double.infinity,
+                height: 1.5,
+              );
+            },
             itemBuilder: (_, index) {
               return SuraNameItem(
                 suraAyat: suraAyatCount[index],
                 suraName: suraNames[index],
                 theme: theme,
                 onPress: () {
-                  Navigator.push(
+                  Navigator.pushNamed(
                     context,
-                    MaterialPageRoute(builder: (_) {
-                      return const SurahScreen();
-                    }),
+                    SurahDetailsScreen.routeName,
+                    arguments: SurahModel(
+                      index,
+                      suraName: suraNames[index],
+                      suraAyat: suraAyatCount[index],
+                    ),
                   );
                 },
               );
@@ -271,26 +283,6 @@ class QuranTap extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class SurahScreen extends StatelessWidget {
-  const SurahScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage(Assets.assetsImagesHomeLightBackground),
-            fit: BoxFit.fill),
-      ),
-      child: const Scaffold(
-        body: Center(
-          child: Text("Surah Screen"),
-        ),
-      ),
     );
   }
 }
