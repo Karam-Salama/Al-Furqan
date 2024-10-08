@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:al_furqan/features/Hadith/screens/hadith_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../core/utils/app_theme.dart';
@@ -17,6 +18,7 @@ class ALFurqan extends StatelessWidget {
       routes: {
         HomeScreen.routeName: (_) => const HomeScreen(),
         SurahDetailsScreen.routeName: (_) => const SurahDetailsScreen(),
+        HadithDetailsScreen.routeName: (_) => const HadithDetailsScreen(),
       },
       initialRoute: HomeScreen.routeName,
     );
