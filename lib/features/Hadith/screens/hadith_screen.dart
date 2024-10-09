@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import '../../../core/utils/assets.dart';
+import '../../providers/setting_provider.dart';
 import '../models/hadith_model.dart';
 
 class HadithDetailsScreen extends StatelessWidget {
@@ -12,10 +15,14 @@ class HadithDetailsScreen extends StatelessWidget {
     final theme = Theme.of(context);
     final HadithModel hadith =
         ModalRoute.of(context)!.settings.arguments as HadithModel;
+    var settingProvider = Provider.of<SettingProvider>(context);
+
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(Assets.assetsImagesHomeLightBackground),
+          image: AssetImage(settingProvider.isDarkMode()
+              ? Assets.assetsImagesHomeDarkBackground
+              : Assets.assetsImagesHomeLightBackground),
           fit: BoxFit.fill,
         ),
       ),

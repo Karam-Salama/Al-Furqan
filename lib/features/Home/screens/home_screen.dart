@@ -1,5 +1,5 @@
-import 'package:al_furqan/core/utils/app_colors.dart';
-import 'package:al_furqan/core/utils/assets.dart';
+import '../../../core/utils/app_colors.dart';
+import '../../../core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 import '../../Hadith/screens/hadith_tap_widget.dart';

@@ -1,4 +1,4 @@
-import 'package:al_furqan/core/utils/assets.dart';
+import '../../../core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 import '../models/surah_model.dart';

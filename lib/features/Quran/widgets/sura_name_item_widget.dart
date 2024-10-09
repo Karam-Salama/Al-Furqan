@@ -23,7 +23,7 @@ class SuraNameItem extends StatelessWidget {
       child: Row(
         children: [
           QuranTapListViewItem(
-            text: suraAyat.toString(),
+            text: suraName,
             theme: theme,
           ),
           Container(
@@ -32,9 +32,9 @@ class SuraNameItem extends StatelessWidget {
             width: 2,
           ),
           QuranTapListViewItem(
-            text: suraName,
+            text: suraAyat.toString(),
             theme: theme,
-          )
+          ),
         ],
       ),
     );
