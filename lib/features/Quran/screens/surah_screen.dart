@@ -1,5 +1,7 @@
+import '../../providers/setting_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/utils/assets.dart';
 import '../models/surah_model.dart';
@@ -21,13 +23,17 @@ class _SurahDetailsScreenState extends State<SurahDetailsScreen> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     args = ModalRoute.of(context)!.settings.arguments as SurahModel;
+    var settingProvider = Provider.of<SettingProvider>(context);
+
     if (verses.isEmpty) {
       readFile(args.index);
     }
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(Assets.assetsImagesHomeLightBackground),
+          image: AssetImage(settingProvider.isDarkMode()
+              ? Assets.assetsImagesHomeDarkBackground
+              : Assets.assetsImagesHomeLightBackground),
           fit: BoxFit.fill,
         ),
       ),

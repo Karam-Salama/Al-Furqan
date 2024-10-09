@@ -1,0 +1,19 @@
+{
+    "@@locale": "en",
+    "appName": "Islami",
+    "quranTitle": "Quran",
+    "hadithTitle": "Hadith",
+    "sebhaTitle": "Sebha",
+    "radioTitle": "Radio",
+    "settingTitle": "Setting",
+    "theme": "Theme",
+    "darkMode": "Dark",
+    "lightMode": "Light",
+    "language": "Language",
+    "englishLanguage":"English",
+    "arabicLanguage":"Arabic",
+    "suraName": "Sura Name",
+    "ayatCount": "Ayat Count",
+    "ahadith": "Ahadith"
+
+}

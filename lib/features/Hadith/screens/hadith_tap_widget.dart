@@ -8,6 +8,7 @@ import '../../../core/utils/assets.dart';
 import '../../Quran/widgets/header_item_widget.dart';
 import '../models/hadith_model.dart';
 import 'hadith_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadithTap extends StatefulWidget {
   const HadithTap({super.key});
@@ -30,7 +31,8 @@ class _HadithTapState extends State<HadithTap> {
       const SizedBox(height: 20.0),
       Container(
         color: AppColors.transparent,
-        child: HeaderItem(theme: theme, text: "الاحاديث"),
+        child: HeaderItem(
+            theme: theme, text: AppLocalizations.of(context)!.ahadith),
       ),
       Expanded(
         child: ListView.separated(
@@ -44,21 +46,19 @@ class _HadithTapState extends State<HadithTap> {
           },
           itemBuilder: (_, index) {
             return InkWell(
-              onTap: (){
-                Navigator.pushNamed(
-                    context,
-                    HadithDetailsScreen.routeName,
+              onTap: () {
+                Navigator.pushNamed(context, HadithDetailsScreen.routeName,
                     arguments: HadithModel(
                       content: hadithList[index].content,
                       title: hadithList[index].title,
-                    )
-                  );
+                    ));
               },
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: Text(
                   hadithList[index].title,
                   textAlign: TextAlign.center,
+                  style: theme.textTheme.headlineSmall,
                 ),
               ),
             );
@@ -66,15 +66,6 @@ class _HadithTapState extends State<HadithTap> {
         ),
       ),
     ]);
-
-    //     itemBuilder: (context, index) => InkWell(
-    //       onTap: () {
-    //         Navigator.pushNamed(
-    //           context,
-    //           HadithDetailsScreen.routeName,
-    //           arguments: ahadethOfFile[index],
-    //         );
-    //       },
   }
 
   void readHadithFile() async {

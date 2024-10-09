@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'header_item_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HeaderRow extends StatelessWidget {
   final ThemeData theme;
@@ -13,7 +14,7 @@ class HeaderRow extends StatelessWidget {
       children: [
         HeaderItem(
           theme: theme,
-          text: "عدد الآيات", // Ayat Count Header
+          text: AppLocalizations.of(context)!.suraName,
         ),
         Container(
           color: theme.primaryColor,
@@ -22,7 +23,7 @@ class HeaderRow extends StatelessWidget {
         ),
         HeaderItem(
           theme: theme,
-          text: "اسم السورة", // Sura Name Header
+          text: AppLocalizations.of(context)!.ayatCount,
         ),
       ],
     );

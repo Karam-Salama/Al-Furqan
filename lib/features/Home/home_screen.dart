@@ -1,11 +1,14 @@
-import 'package:al_furqan/core/utils/app_colors.dart';
-import 'package:al_furqan/core/utils/assets.dart';
+import '../../core/utils/assets.dart';
+import '../providers/setting_provider.dart';
+import '../settings/screens/setting_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../Hadith/screens/hadith_tap_widget.dart';
 import '../Quran/screens/quran_tap.dart';
 import '../Radio/screens/radio_tap_widget.dart';
 import '../Sebha/screens/sebha_tap_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/homeScreen';
@@ -21,56 +24,65 @@ class _HomeScreenState extends State<HomeScreen> {
     const HadithTap(),
     const SebhaTap(),
     const RadioTap(),
+    const SettingScreen()
   ];
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    var settingProvider = Provider.of<SettingProvider>(context);
+
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(Assets.assetsImagesHomeLightBackground),
+          image: AssetImage(settingProvider.getMainBackgroundColor()),
           fit: BoxFit.fill,
         ),
       ),
       child: Scaffold(
-        appBar: AppBar(title: const Text('الفرقان')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.appName)),
         body: taps[selectedIndex],
-        bottomNavigationBar: Theme(
-          data: Theme.of(context)
-              .copyWith(canvasColor: AppColors.lightPrimaryColor),
-          child: BottomNavigationBar(
-            currentIndex: selectedIndex,
-            onTap: (index) {
-              setState(() {
-                selectedIndex = index;
-              });
-            },
-            items: const [
-              BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(
-                  Assets.assetsIconsMoshafIcon,
-                )),
-                label: 'Quran',
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(
-                  Assets.assetsIconsQuranIcon,
-                )),
-                label: 'Hadith',
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(
-                  Assets.assetsIconsSebhaIcon,
-                )),
-                label: 'Sebha',
-              ),
-              BottomNavigationBarItem(
-                icon: ImageIcon(AssetImage(
-                  Assets.assetsIconsRadioIcon,
-                )),
-                label: 'Radio',
-              ),
-            ],
-          ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: selectedIndex,
+          onTap: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              backgroundColor: theme.bottomNavigationBarTheme.backgroundColor,
+              icon: const ImageIcon(AssetImage(
+                Assets.assetsIconsMoshafIcon,
+              )),
+              label: AppLocalizations.of(context)!.quranTitle,
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: theme.bottomNavigationBarTheme.backgroundColor,
+              icon: const ImageIcon(AssetImage(
+                Assets.assetsIconsQuranIcon,
+              )),
+              label: AppLocalizations.of(context)!.hadithTitle,
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: theme.bottomNavigationBarTheme.backgroundColor,
+              icon: const ImageIcon(AssetImage(
+                Assets.assetsIconsSebhaIcon,
+              )),
+              label: AppLocalizations.of(context)!.sebhaTitle,
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: theme.bottomNavigationBarTheme.backgroundColor,
+              icon: const ImageIcon(AssetImage(
+                Assets.assetsIconsRadioIcon,
+              )),
+              label: AppLocalizations.of(context)!.radioTitle,
+            ),
+            BottomNavigationBarItem(
+              backgroundColor: theme.bottomNavigationBarTheme.backgroundColor,
+              icon: const Icon(Icons.settings),
+              label: AppLocalizations.of(context)!.settingTitle,
+            ),
+          ],
         ),
       ),
     );

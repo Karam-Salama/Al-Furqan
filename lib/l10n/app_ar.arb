@@ -1,0 +1,19 @@
+{
+    "@@locale": "ar",
+    "appName": "اسلامي",
+    "quranTitle": "القرءان",
+    "hadithTitle": "الحديث",
+    "sebhaTitle": "السبحة",
+    "radioTitle": "الراديو",
+    "settingTitle": "الاعدادات",
+    "theme": "المظهر",
+    "darkMode": "ليلي",
+    "lightMode": "نهاري",
+    "language": "اللغة",
+    "englishLanguage":"انجليزي",
+    "arabicLanguage":"عربي",
+    "suraName": "اسم السورة",
+    "ayatCount": "عدد الايات",
+    "ahadith": "الاحاديث"
+
+}
